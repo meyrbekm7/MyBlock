@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Bu har doim qo'shing */
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(to right, #616193, #a1a1e3,#313356);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.ota {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 400px; /* default kengligi katta ekranda */
+    max-width: 90%; /* kichik ekranlar uchun moslashadi */
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(104, 75, 184, 0.3);
+    text-align: center;
+}
+
+/* Har bir inputni flex bilan kengaytirish */
+.name {
+    display: flex;
+    flex-wrap: wrap;       /* kichik ekranlarda inputlar ustma-ust tushadi */
+    gap: 10px;
+    width: 100%;
+}
+
+input {
+    flex: 1 1 200px;       /* kengligi moslashadi, minimal 200px */
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+input:hover {
+    transform: scale(1.05);
+    box-shadow: 1px 1px 10px 1px rgb(9, 99, 188);
+    opacity: 1;
+}
+
+.kirish {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(100, 76, 235);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.kirish:hover {
+    transform: scale(1.05);
+    opacity: 1;
+    background-color: rgb(85, 58, 240);
+}
+
+
+@media (max-width: 480px) {
+    .ota {
+        width: 95%; 
+        padding: 15px;
+    }
+
+    input {
+        flex: 1 1 100%; 
+    }
+}
