@@ -19,24 +19,28 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 400px; /* default kengligi katta ekranda */
-    max-width: 90%; /* kichik ekranlar uchun moslashadi */
+    width: 400px; 
+    max-width: 90%; 
     padding: 20px;
     border-radius: 20px;
     background-color: rgba(104, 75, 184, 0.3);
     text-align: center;
+    
 }
 
-/* Har bir inputni flex bilan kengaytirish */
+
 .name {
     display: flex;
-    flex-wrap: wrap;       /* kichik ekranlarda inputlar ustma-ust tushadi */
+    flex-wrap: wrap;     
     gap: 10px;
-    width: 100%;
+    width: 40%;
+   
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 input {
-    flex: 1 1 200px;       /* kengligi moslashadi, minimal 200px */
+    flex: 1 1 200px;       
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -58,6 +62,7 @@ input:hover {
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    margin-top: 10px;
 }
 
 .kirish:hover {
