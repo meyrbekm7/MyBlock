@@ -6,7 +6,10 @@
 }
 
 body{
-background-color: rgb(44, 5, 48);
+background: url(images/image\ copy\ 5.png);
+  background-repeat: no-repeat;
+  background-size: cover;     
+  background-position: center;
 
 
 }
@@ -63,7 +66,7 @@ background-color: rgb(44, 5, 48);
 .card1:hover{
     transform: scale(1.1);
     opacity: 1;
-    box-shadow: 1px 1px 30px 5px rgb(124, 4, 126);
+    box-shadow: 1px 1px 30px 5px dodgerblue;
 }
 
 .otajon{
@@ -91,14 +94,32 @@ a{
 .skill{
     text-align: center;
     color: white;
+    border: 1px solid black;
+    height: 400px;
+    background-color: rgb(228, 233, 238);
+    border-radius: 20px;
+    width: 80%;
+    margin-left: 10%;
+    opacity: 0.7;
+    border: none;
+    transition: 0.3s;
+    color: rgba(0, 0, 0, 0.549);
 }
 
+
+.skill:hover{
+    opacity: 0.9;
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+     box-shadow: 1px 1px 30px 5px dodgerblue;
+    
+}
 
 .img{
     display: flex;
     justify-content: space-around;
-
-    margin-top: 50px;
+    margin-top:100px;
 width: 10%px;
 }
 
@@ -110,6 +131,59 @@ padding: 10px;
 border-radius: 20px;
 background-color: white;
 border: none;
-box-shadow: 1px 2px 20px 5px rgb(127, 118, 128);
+box-shadow: 1px 2px 20px 5px dodgerblue;
 
+}
+
+
+
+footer{
+    border: 1px solid black;
+    border-color: white;
+    margin-top: 150px;
+    background-color: rgb(3, 21, 39);
+    text-align: center;
+    border: none;
+    width: 100%;
+    padding: 50px;
+}
+
+
+.call{
+    display: flex;
+    margin-top: 100px;
+   gap: 100px;
+   margin-left: 28%;
+   
+}
+
+
+.img11,.img12,.img13,.img14{
+    box-shadow: 1px 2px 10px 5px rgb(15, 82, 149);
+transition: 0.3s;
+border-radius: 99%;
+}
+
+
+
+.img11:hover,.img12:hover,.img13:hover,.img14:hover{
+       box-shadow: 1px 2px 30px 5px rgb(15, 82, 149);
+        transform: scale(1.1);
+}
+
+
+.toliq{
+    border: none;
+    background-color: dodgerblue;
+    border-radius: 20px;
+    padding: 5px;
+    color: white;
+    opacity: 0.9;
+    transition: 0.3s;
+    width: 100px;
+}
+
+.toliq:hover{
+    opacity: 1;
+    transform: scale(1.1);
 }
