@@ -6,8 +6,9 @@
 }
 
 body{
-    background-image: url(images/image\ copy.png);
-background-size: 100%;
+background-color: rgb(44, 5, 48);
+
+
 }
 
 .box2 {
@@ -62,7 +63,7 @@ background-size: 100%;
 .card1:hover{
     transform: scale(1.1);
     opacity: 1;
-    box-shadow: 1px 1px 30px 5px black;
+    box-shadow: 1px 1px 30px 5px rgb(124, 4, 126);
 }
 
 .otajon{
@@ -87,3 +88,28 @@ a{
 }
 
 
+.skill{
+    text-align: center;
+    color: white;
+}
+
+
+.img{
+    display: flex;
+    justify-content: space-around;
+
+    margin-top: 50px;
+width: 10%px;
+}
+
+
+.img1,.img2,.img3{
+    border: 1px solid black;
+width: 100px;
+padding: 10px;
+border-radius: 20px;
+background-color: white;
+border: none;
+box-shadow: 1px 2px 20px 5px rgb(127, 118, 128);
+
+}
