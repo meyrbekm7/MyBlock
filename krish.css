@@ -31,7 +31,13 @@ body {
 background-color: rgba(48, 45, 36, 0.314);
     text-align: center;
     transition: 0.3s;
-   
+   opacity: 0;
+   transition: 1s;
+   transform: translateY(-50px);
+}
+.ota1{
+    opacity: 1;
+    transform: translateY(50px);
 }
 
 .ota:hover{
@@ -89,5 +95,44 @@ input:hover {
 
     input {
         flex: 1 1 100%; 
+    }
+}
+
+
+/* Tablet */
+@media (max-width: 768px) {
+    .ota {
+        width: 90%;
+    }
+
+    .name {
+        width: 100%;
+        justify-content: center;
+    }
+
+    input {
+        flex: 1 1 100%;
+    }
+}
+
+/* Telefon */
+@media (max-width: 480px) {
+    .ota {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .name {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    input {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .kirish {
+        width: 100%;
     }
 }

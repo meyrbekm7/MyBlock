@@ -18,3 +18,21 @@ toliq.addEventListener('click', function () {
 
 
 });
+
+
+window.addEventListener('load',function(){
+    let box=document.querySelector('.box2')
+    box.classList.add('boxx1')
+})
+
+
+window.addEventListener('load',function(){
+    let card=document.querySelector('.otajon')
+    card.classList.add('card1p')
+})
+
+window.addEventListener('load',function(){
+    let skill=document.querySelector('.skill')
+    skill.classList.add('skil1')
+
+})

@@ -1,12 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilovalarim</title>
-    <link rel="stylesheet" href="ilovalar.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Men Foydalanadigan Ilovalar</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    /* --- Umumiy sozlamalar --- */
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #eef2f3;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    /* --- Header --- */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInDown 1s ease forwards;
+      opacity: 0;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 1.2px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    header p {
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: #a0c1d1;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* --- Ilovalar konteyneri --- */
+    .app-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 900px;
+      animation: fadeInUp 1s ease 0.5s forwards;
+      opacity: 0;
+    }
+
+    /* --- Har bir ilova ikonasi --- */
+    .app-icon {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      filter: drop-shadow(0 3px 4px rgba(0,0,0,0.2));
+      transition: 
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-icon img {
+      max-width: 70%;
+      max-height: 70%;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      transition: filter 0.4s ease;
+    }
+
+    /* Hover effekti */
+    .app-icon:hover {
+      transform: translateY(-12px) scale(1.12);
+      box-shadow: 0 14px 30px rgba(0, 122, 255, 0.7);
+      background: rgba(0, 122, 255, 0.2);
+      z-index: 10;
+    }
+    .app-icon:hover img {
+      filter: drop-shadow(0 4px 10px rgba(0, 122, 255, 0.9));
+    }
+
+    /* Ilova nomini ko‘rsatish tooltip */
+    .app-icon::after {
+      content: attr(title);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(0, 122, 255, 0.9);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+      z-index: 20;
+    }
+    .app-icon:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* --- Tugma konteyneri --- */
+    .btn-container {
+      margin-top: 60px;
+      animation: fadeInUp 1s ease 1s forwards;
+      opacity: 0;
+    }
+
+    /* Tugma */
+    .main-btn {
+      background: linear-gradient(90deg, #007AFF, #00C6FF);
+      border: none;
+      padding: 16px 50px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 198, 255, 0.6);
+      transition:0.4s ease, box-shadow 0.4s ease, transform 0.25s ease;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .main-btn:hover {
+      background: linear-gradient(90deg, #005BBB, #008FD8);
+      box-shadow: 0 8px 25px rgba(0, 143, 216, 0.8);
+      transform: scale(1.05);
+    }
+
+    .main-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 15px rgba(0, 143, 216, 0.7);
+    }
+
+    /* --- Animatsiyalar --- */
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* --- Responsiv dizayn --- */
+    @media (max-width: 600px) {
+      body {
+        padding: 30px 15px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+
+      .app-container {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 22px;
+      }
+
+      .app-icon {
+        padding: 14px;
+      }
+
+      .app-icon img {
+        max-width: 65%;
+        max-height: 65%;
+      }
+
+      .main-btn {
+        padding: 14px 36px;
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      header p {
+        font-size: 0.9rem;
+      }
+
+      .app-icon {
+        padding: 10px;
+      }
+
+      .app-icon img {
+        max-width: 60%;
+        max-height: 60%;
+      }
+
+      .main-btn {
+        padding: 12px 28px;
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<h1>df</h1>
+  <header>
+    <h1>Men Foydalanadigan ilovalar</h1>
+    <p>Akkauntni ko‘rish uchun icon ustiga bosing</p>
+  </header>
+
+  <div class="app-container">
+    <div class="app-icon" title="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="Instagram" />
+    </div>
+    <div class="app-icon" title="Spotify">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Spotify_icon.svg" alt="Spotify" />
+    </div>
+    <div class="app-icon" title="Facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png" alt="Facebook" />
+    </div>
+    <div class="app-icon" title="WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </div>
+    <div class="app-icon" title="Twitter">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Twitter_logo.svg" alt="Twitter" />
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <button class="main-btn" onclick="location.href='index.html'">Asosiy sahifa</button>
+  </div>
 </body>
 </html>

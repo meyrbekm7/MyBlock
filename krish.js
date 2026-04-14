@@ -1,5 +1,6 @@
 let ism = document.getElementById('name');
 let family = document.getElementById('family');
+let p=document.getElementById('p')
 
 
 function tekshir(){
@@ -15,3 +16,7 @@ function tekshir(){
 
 
 
+window.addEventListener('load',function(){
+    let ota=document.querySelector('.ota')
+    ota.classList.add('ota1')
+})
